@@ -2,6 +2,7 @@ var Data=new Array();
 //初始化位置陣列
 var Pointlist=new Array();
 var inputname;
+var cloumn=0;
 function setpointlist()
 {
     for(let j=0;j<Data.length;j++){
@@ -70,6 +71,7 @@ function setRandomPosOnClass2_0()//給予隨機位置
         let elementLeft=Math.max(treeX-position[treeX][treeY].radius,5);
         let elementTop=Math.max(treeY-position[treeX][treeY].radius,5);				
         showResult(i,elementLeft,elementTop,Data[i]);	
+        creatcolumn(i);
         temp=i;
         sw=1;
         count++;
@@ -376,12 +378,20 @@ function findData(context)
             {
                 sw=1;
                 Data=firebase_data[i];
+                column=j;
             }
     if(sw===1)
         return true;
     else{
         return false;
     }
+}
+function creatcolumn(num)
+{
+    console.log("我有近來");
+    var columnbox=document.createElement('div');
+    columnbox.textContent="第"+column+"行";
+    document.querySelector('#tree'+num).appendChild(columnbox); 
 }
 
 
