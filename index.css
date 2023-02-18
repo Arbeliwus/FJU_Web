@@ -4,12 +4,13 @@
     border-radius: 50px;
     top: 0px;
     left: 0px;
-    height: auto;
+    height: fit-content;
     width: fit-content;
     position:absolute;
     opacity:0;
     padding: 5px;
     font-size: 0.5px;
+    white-space:nowrap;
 }  
 .animation{
     animation-name:ShowData;   
