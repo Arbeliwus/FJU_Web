@@ -5,11 +5,11 @@
     top: 0px;
     left: 0px;
     height: auto;
-    width: auto;
+    width: fit-content;
+    position:absolute;
     opacity:0;
     padding: 5px;
-    position:fixed;
-    font-size: 30px;
+    font-size: 0.5px;
 }  
 .animation{
     animation-name:ShowData;   
@@ -31,7 +31,7 @@
     color: black;
 }
 body{
-    overflow:hidden;
+    overflow:auto;
 }
 div{
     padding:0px;
@@ -49,9 +49,14 @@ div{
 }
 .img-container {
     position: fixed;
-
  }
- 
+ .overbord{
+    overflow: auto;
+    position: relative;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
  .img-border {
     position: fixed;
     top: 0;

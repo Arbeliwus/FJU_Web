@@ -19,10 +19,13 @@ function read_db(){
   db.ref("users").orderByValue().once('value', function (snapshot) {
     snapshot.forEach(function (item) {
         let d=item.val();
-        tidy(d);
+        tidy(d,mainlist);
+        console.log(mainlist);
+        d=d.replaceAll("&&",",");
+        tidy(d,nodelist);
+        console.log(nodelist);
         
     })
 });
-return firebase_data;
 }
 console.log("成功載入firebase.js"); 

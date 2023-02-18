@@ -12,7 +12,7 @@ function setpointlist()
 function ranData()//隨機給資料
 {
     var ranNum;
-    var Max=10;//有多少資料
+    var Max=1;//有多少資料
     for(var i=0;i<Max;i++)
     {
         ranNum=Math.random()*100;
@@ -29,87 +29,14 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.textContent=context;			
     treeElement.style.left=elementLeft-16+"px";
     treeElement.style.top=elementTop-16+"px";	
-    document.querySelector('.img-container').appendChild(treeElement);	
+    document.querySelector('span').appendChild(treeElement);	
 }
-/*function setRandomPosOnClass2_0()//給予隨機位置
-{
-    ranData();
-    let temp;
-    let count=0;
-    let bor=0.15;
-    //初始化位置陣列
-    var position=new Array();
-    for(var i=0;i<window.innerWidth;i++){
-        position[i]=new Array();
-        for(var j=0;j<window.innerHeight;j++){
-            position[i][j]={radius:0,isPlanted:0,line:0};//周圍距離 是否種植 連線數
-        }
-    }
-    for(let i in Data)
-        if(Data[i]===inputname){
-            Pointlist[i]={pointX:window.innerWidth/2,pointY:window.innerHeight/2,line:0}; 
-        }
-    let sw=0;
-    for(let i in Data){
-    let MinHeight=(window.innerHeight/2);
-    let MaxHeight=(window.innerHeight/2)+128;
-
-    let MinWidth=window.innerWidth*bor;
-    let MaxWidth=window.innerWidth-10;
-
-    if(sw===1)//右邊的資料
-    {
-        MinWidth=(window.innerWidth/2);
-        MaxWidth=window.innerWidth-(window.innerWidth*bor);
-    }
-    if(sw==0)//左邊的資料
-    {
-        MinWidth=window.innerWidth*bor;
-        MaxWidth=window.innerWidth/2;
-    }
-    if(Data[i]===inputname){
-        let treeX=Math.floor(window.innerWidth/2);
-        let treeY=Math.floor(window.innerHeight/2);
-        let elementLeft=Math.max(treeX-position[treeX][treeY].radius,5);
-        let elementTop=Math.max(treeY-position[treeX][treeY].radius,5);				
-        showResult(i,elementLeft,elementTop,Data[i]);	
-        creatcolumn(i);
-        temp=i;
-        sw=1;
-        count++;
-        continue;
-    }
-    //隨機選擇位置
-    let treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
-    let treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
-    //假如選擇的位址已經有了，則重選 假如選擇位置有重疊到，則重選
-    while(position[treeX][treeY].isPlanted==1||CheckHaveSame(position,treeX,treeY))
-    {
-        treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
-        treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
-    }
-    //假如種植成功則創建div
-    if(position[treeX][treeY].isPlanted==1){	
-
-        //顯示資料
-        let elementLeft=Math.max(treeX-position[treeX][treeY].radius,16);
-        let elementTop=Math.max(treeY-position[treeX][treeY].radius,16);				
-        showResult(i,elementLeft,elementTop,Data[i]);	
-        //紀錄有哪些點			
-        Pointlist[count++]={pointX:elementLeft,pointY:elementTop,line:0};     
-    }
-
-    }
-   //尋找適合的點並畫線
-   findleftpoint2_1(temp);
-   findrightpoint2_1(temp);
-}*/
 function setRandomPosOnClass2_0()//給予隨機位置
 {
     //ranData();
     let temp;
     let count=0;
-    let bor=0.15;
+    let bor=0.29;
     //初始化位置陣列
     var position=new Array();
     for(var i=0;i<window.innerWidth;i++){
@@ -118,27 +45,34 @@ function setRandomPosOnClass2_0()//給予隨機位置
             position[i][j]={radius:0,isPlanted:0,line:0};//周圍距離 是否種植 連線數
         }
     }
-    for(let i in Data)
+    for(let i=0;i<Data.length;i++)
         if(Data[i]===inputname){
             Pointlist[i]={pointX:window.innerWidth/2,pointY:window.innerHeight/2,line:0}; 
+            temp=i;
         }
-    let sw=0;
-    for(let i in Data){
-    let MinHeight=(window.innerHeight/2)-100;
-    let MaxHeight=(window.innerHeight/2)+200;
+    for(let i=0;i<Data.length;i++){
+    if(Data[i]==='-1')
+    {
+        console.log(Data[i]);
+        continue;
+    }
+    console.log('I:',i,'DL:',Data[i]);
+    //let MinHeight=(window.innerHeight*bor);
+    let MinHeight=(window.innerHeight/2)-(window.innerHeight*bor);
+    let MaxHeight=(window.innerHeight/2)+(window.innerHeight*bor);
 
-    let MinWidth=0;
-    let MaxWidth=0;
-
+    let MinWidth=window.innerWidth*(0.1);
+    let MaxWidth=window.innerWidth-(window.innerWidth*(0.1));
+    let sw=Math.floor(Math.random()*(3-1)+1);
     if(sw===1)//右邊的資料
     {
-        MinWidth=(window.innerWidth/2)+256;
-        MaxWidth=window.innerWidth-(window.innerWidth*bor);
+        MinWidth=(window.innerWidth/2)+40;
+        MaxWidth=window.innerWidth-(window.innerWidth*(0.1));
     }
-    if(sw==0)//左邊的資料
+    if(sw==2)//左邊的資料
     {
-        MinWidth=window.innerWidth*bor;
-        MaxWidth=(window.innerWidth/2)-256;
+        MinWidth=window.innerWidth*(0.1);
+        MaxWidth=(window.innerWidth/2)-40;
     }
     if(Data[i]===inputname){
         let treeX=Math.floor(window.innerWidth/2);
@@ -147,19 +81,66 @@ function setRandomPosOnClass2_0()//給予隨機位置
         let elementTop=Math.max(treeY-position[treeX][treeY].radius,16);				
         showResult(i,elementLeft,elementTop,Data[i]);	
         creatcolumn(i);
-        temp=i;
-        sw=1;
-        count++;
+        Pointlist[count++]={pointX:elementLeft,pointY:elementTop,line:0};
         continue;
     }
     //隨機選擇位置
     let treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
     let treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
+
+    let stoptime=0;
+    position[treeX][treeY].isPlanted=1;
     //假如選擇的位址已經有了，則重選 假如選擇位置有重疊到，則重選
-    while(position[treeX][treeY].isPlanted==1||CheckHaveSame(position,treeX,treeY))
+    while(position[treeX][treeY].isPlanted===1||CheckHaveSame(position,treeX,treeY))
     {
-        treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
-        treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
+        if(stoptime===90000){
+        MinWidth=window.innerWidth*(0.15);
+        MaxWidth=window.innerWidth-(window.innerWidth*(0.15));
+        let templist=new Array();
+        console.log(MinWidth)
+        for(let xx=Math.floor(MinWidth);xx<MaxWidth;xx++){
+            for(let yy=Math.floor(MinHeight);yy<MaxHeight;yy++){
+                if(findtemppoint(xx,yy)){
+                    templist.push({pointX:xx,pointY:yy});
+                }
+            }
+        }
+        let randnum=Math.floor(Math.random()*templist.length-1);
+        console.log('sw',sw);
+        console.log('tl',templist.length);
+        console.log('da',templist[randnum]);
+        console.log('ra',randnum);
+        if(templist.length===0){
+            let nt=0;
+            while(findtemppoint(treeX,treeY)){
+                treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
+                treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
+                nt++;
+                if(nt>30000)
+                    break;
+            }
+            position[treeX][treeY].isPlanted=1;
+            break;
+        }
+        treeX=templist[randnum].pointX;
+        treeY=templist[randnum].pointY;
+        position[treeX][treeY].isPlanted=1;
+        templist=new Array();
+        break;
+        }
+        if(sw===1)//右邊的資料
+        {
+            treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
+            if(stoptime>1000)
+                treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
+        }
+        if(sw==2)//左邊的資料
+        {
+           treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
+            if(stoptime>1000)
+                treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
+        }
+        stoptime++;
     }
     //假如種植成功則創建div
     if(position[treeX][treeY].isPlanted==1){	
@@ -173,44 +154,11 @@ function setRandomPosOnClass2_0()//給予隨機位置
     }
 
     }
+    console.log('a',Data[temp]);
    //尋找適合的點並畫線
-   findleftpoint2_1(temp);
-   findrightpoint2_1(temp);
+    findleftpoint2_1(temp);
+    findrightpoint2_1(temp);
 }
-/*function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
-{
-    //設定半徑
-    var treeRadius=36;
-    
-    //初始設定為可以種植			
-    position[treeX][treeY].radius=treeRadius;	
-    position[treeX][treeY].isPlanted=1;
-    
-    //設定檢測範圍    
-    for(let i in Pointlist){
-
-  		let x=Pointlist[i].pointX;
-        let y=Pointlist[i].pointY;
-        //比較兩點的距離判斷是否重疊		
-        var treeDistanceSquared=Math.sqrt((treeX-x)*(treeX-x)+(treeY-y)*(treeY-y));						
-        var radiusSumSquared=Math.sqrt((treeRadius+treeRadius)*(treeRadius+treeRadius));
-
-        if(treeDistanceSquared<radiusSumSquared){
-            //有重疊到則設定為不能選此位置						
-            position[treeX][treeY].radius=0;
-            position[treeX][treeY].isPlanted=0;
-        }													
-    }
-    //回傳是否有重疊
-    if(position[treeX][treeY].isPlanted===0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}*/
 function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
 {
     //設定半徑
@@ -218,29 +166,24 @@ function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
     //初始設定為可以種植			
     position[treeX][treeY].radius=0;	
     position[treeX][treeY].isPlanted=1;
-    console.log("xtreeX",treeX);
-    console.log('treeY',treeY);
+
     //設定檢測範圍    
     for(let i=0;i<Pointlist.length;i++){
 
   		let x=Pointlist[i].pointX;
         let y=Pointlist[i].pointY;
-        console.log("x",x);
-        console.log('y',y);
+
         //比較兩點的距離判斷是否重疊		
-        var xdistance=Math.sqrt(Math.pow(treeX-x,2));						
-        var ydistance=Math.sqrt(Math.pow(treeY-y,2));
-        console.log("xd",xdistance);
-        console.log('yd',ydistance);
-        if(xdistance<treeRadius||ydistance<treeRadius){
+        let xdistance=Math.sqrt(Math.pow(treeX-x,2));						
+        let ydistance=Math.sqrt(Math.pow(treeY-y,2));
+        let PointDistance=Math.sqrt(Math.pow(treeX-x,2),Math.pow(treeY,2));
+        if(PointDistance<treeRadius){
             //有重疊到則設定為不能選此位置		
-            console.log("我今來了");
             position[treeX][treeY].radius=0;
             position[treeX][treeY].isPlanted=0;
             return true;
         }													
     }
-    console.log("---------------------------");
     //回傳是否有重疊
     if(position[treeX][treeY].isPlanted===0)
     {
@@ -248,7 +191,7 @@ function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
     }
     else
     {
-        console.log('treeRadius',treeRadius);
+       // console.log('treeRadius',treeRadius);
 
         return false;
     }
@@ -291,7 +234,7 @@ function creatcanva()//初始化canvas
     //加上動畫效果
     setcanvas.setAttribute('class','line animation -delay');
     //新增在body裡面
-    document.querySelector('.img-container').appendChild(setcanvas);
+    document.querySelector('span').appendChild(setcanvas);
 }
 function HaveSameLine(linelist,p1,p2)//判斷是否重新連線
 {
@@ -349,7 +292,7 @@ function onConfirm() //輸入文字後輸出資料
     var nameDisplay = document.createElement("div");
     nameDisplay.innerText = nameInput.value;//抓取輸入的名稱
     inputname=nameInput.value;
-    if(!findData(inputname))
+    if(!findData())
     {
         alert("查無資料");
         return;
@@ -363,6 +306,7 @@ function onConfirm() //輸入文字後輸出資料
     let temp=parentObj.parentNode;
     temp.removeChild(parentObj);
     //初始化canva畫布
+   // creatoverbord();
     creatcanva();
     //設定文字框
     setpointlist();
@@ -377,7 +321,7 @@ function findleftpoint2_1(point)//尋找連接點
         linelist[i]={point1:-1,point2:-1};//第i個點 連接到哪兩個點
 
     let i=point;
-    console.log(point);
+
     //儲存點i的x y
     let treeX=Pointlist[i].pointX;
     let treeY=Pointlist[i].pointY;
@@ -418,9 +362,6 @@ function findleftpoint2_1(point)//尋找連接點
     Pointlist[i].line+=1;//i點的連線數+1
     Pointlist[temp].line+=1;//i點連接到的點連線數+1
     findleftpoint2_1(temp);
-
-    for(let i in Pointlist)
-        console.log("第i點 :",i,"連線數",Pointlist[i].line);
 }
 function findrightpoint2_1(point)//尋找連接點
 {   
@@ -471,8 +412,8 @@ function findrightpoint2_1(point)//尋找連接點
     Pointlist[i].line+=1;//i點的連線數+1
     Pointlist[temp].line+=1;//i點連接到的點連線數+1
     findrightpoint2_1(temp);
-    for(let i in Pointlist)
-        console.log("第i點 :",i,"連線數",Pointlist[i].line);
+   // for(let i in Pointlist)
+        //console.log("第i點 :",i,"連線數",Pointlist[i].line);
 }
 function creatbord()
 {
@@ -480,17 +421,18 @@ function creatbord()
     container.setAttribute('class','img-container');
     document.querySelector('body').appendChild(container);
 }
-function findData(context)
+function findData()
 {
     let sw=0;
-    console.log(firebase_data.length);
-    for(let  i=0;i<firebase_data.length;i++)
-        for(let j=0;j<firebase_data[i].length;j++)
-            if(firebase_data[i][j]===context)
+    console.log(mainlist.length);
+    for(let  i=0;i<mainlist.length;i++)
+        for(let j=0;j<mainlist[i].length;j++)
+            if(mainlist[i][j].includes(inputname))
             {
+                console.log(mainlist[i][j]);
                 sw=1;
-                Data=firebase_data[i];
-                column=j;
+                Data=nodelist[i];
+                column=j+1;
             }
     if(sw===1)
         return true;
@@ -500,22 +442,56 @@ function findData(context)
 }
 function creatcolumn(num)
 {
-    console.log("我有近來");
-    var columnbox=document.createElement('div');
+    let columnbox=document.createElement('div');
     columnbox.textContent="第"+column+"行";
     columnbox.setAttribute('class','columnbox');
     document.querySelector('#tree'+num).appendChild(columnbox);	
 }
 function connectDots(x1,y1,x2,y2)//創建連線
  {
-  
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
+    ctx.lineWidth = 3;
+    ctx.lineCap = "butt";
     ctx.beginPath();
     ctx.moveTo(x1, y1);
-    ctx.bezierCurveTo(x1 + (x2 - x1) / 2, y1, x1 + (x2 - x1) / 2, y2, x2, y2);
+    let randnum=Math.random()*(50+50)-50;
+    ctx.bezierCurveTo(x1 + (x2 - x1)+randnum / 2, y1, x1 + (x2 - x1) / 2, y2, x2, y2);
     ctx.stroke();
+}
+function creatoverbord()
+{
+    let over=document.createElement('div');
+    over.setAttribute('class','overbord');
+    document.querySelector('span').appendChild(over);
+    let bord=document.querySelector('.overbord');
+    bord.style.position = 'fixed';
+    bord.style.width = '1100px'; // set the width to 400 pixels
+    bord.style.height = '600px'; // set the height to 300 pixels
+    bord.style.transform = 'translate(-50%, -50%)';
+}
+function findtemppoint(treeX,treeY)
+{
+    //設定半徑
+    var treeRadius=40;
+    //設定檢測範圍    
+    for(let i=0;i<Pointlist.length;i++){
 
-  }
+  		let x=Pointlist[i].pointX;
+        let y=Pointlist[i].pointY;
 
+        //比較兩點的距離判斷是否重疊		
+        let PointDistance=Math.sqrt(Math.pow(treeX-x,2),Math.pow(treeY,2));
+        let xdistance=Math.sqrt(Math.pow(treeX-x,2));						
+        let ydistance=Math.sqrt(Math.pow(treeY-y,2));
+        if(x===treeX||y===treeY)
+            return false;
+        if(xdistance<treeRadius&&ydistance<treeRadius){
+            //有重疊到則設定為不能選此位置		
+            return false;
+        }													
+    }
+     return true;
+    
+}
 
