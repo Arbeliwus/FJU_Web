@@ -1,0 +1,91 @@
+.random {
+    color: rgb(23, 228, 246);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    top: 0px;
+    left: 0px;
+    height: fit-content;
+    width: fit-content;
+    position:fixed;
+    opacity:0;
+    padding: 8px;
+    font-size: 30px;
+    white-space:nowrap;
+    border: 4px rgba(255, 255, 0, 0.766) solid;
+    font-family: 'Source Han Serif', serif;
+}  
+.animation{
+    animation-name:ShowData;   
+    animation-duration: 5s;    
+    animation-delay: 0s; 
+    animation-iteration-count: 1;  
+    animation-fill-mode:forwards;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.-delay{
+    animation-delay: 2s; 
+}
+.line{
+    opacity:0;
+    color: black;
+}
+body{
+    overflow:auto;
+}
+div{
+    padding:0px;
+}    
+.container {
+    position: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.input-container {
+    flex-direction: column;
+    align-items: center;
+}
+.img-container {
+    position: fixed;
+ }
+ .overbord{
+    overflow: auto;
+    position: relative;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+ .img-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+ }
+ .img-text {
+    font-size: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000;
+ }
+ .topbord{
+    display: block;
+ }
+.columnbox{
+    margin-top: 10px;
+    border-radius: 50px;
+}
+@keyframes ShowData
+{
+     from {opacity:0 ; }
+     to { opacity:1;}
+}
