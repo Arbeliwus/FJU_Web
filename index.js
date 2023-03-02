@@ -3,11 +3,233 @@ var Data=new Array();
 var Pointlist=new Array();
 var inputname;
 var column=0;
-function setpointlist()
+function choserange(count){
+    let rangelist=[11,15,19,22,27,31,49];
+    let range;
+    for(let i in rangelist)
+        if(count<=rangelist[i])
+            return rangelist[i];
+}
+function setpointlist(count)
 {
-    for(let j=0;j<Data.length;j++){
-        Pointlist[j]={pointX:0,pointY:0,line:0};
+    for(let j=0;j<Data.length;j++)
+        Pointlist[j]={pointX:-1,pointY:-1,line:0};
+    console.log('count',choserange(count));
+    switch(choserange(count)){
+        case 11:
+            point11();
+            break;
+        case 15:
+            point15();
+            break;
+        case 19:
+            point19();
+            break;
+        case 22:
+            point22();
+            break;
+        case 27:
+            point27();
+            break;
+        case 31:
+            point31();
+            break;
+        case 49:
+            point49();
+            break;
     }
+}
+function point11()
+{
+    Pointlist[0]={pointX:360,pointY:680,mid:6};
+    Pointlist[1]={pointX:280,pointY:590};
+    Pointlist[2]={pointX:410,pointY:410};
+    Pointlist[3]={pointX:555,pointY:520};
+    Pointlist[4]={pointX:735,pointY:330};
+    Pointlist[5]={pointX:990,pointY:240};
+    Pointlist[6]={pointX:910,pointY:550};
+    Pointlist[7]={pointX:1110,pointY:760};
+    Pointlist[8]={pointX:1270,pointY:350};
+    Pointlist[9]={pointX:1370,pointY:520};
+    Pointlist[10]={pointX:1560,pointY:330};
+}
+function point15()
+{
+    Pointlist[0]={pointX:410,pointY:760,mid:5};
+    Pointlist[1]={pointX:730,pointY:850};
+    Pointlist[2]={pointX:1135,pointY:760};
+    Pointlist[3]={pointX:1270,pointY:700};
+    Pointlist[4]={pointX:1500,pointY:590};
+    Pointlist[5]={pointX:910,pointY:550};
+    Pointlist[6]={pointX:555,pointY:520};
+    Pointlist[7]={pointX:410,pointY:410};
+    Pointlist[8]={pointX:210,pointY:240};
+    Pointlist[9]={pointX:620,pointY:330};
+    Pointlist[10]={pointX:960,pointY:240};
+    Pointlist[11]={pointX:1135,pointY:240};
+    Pointlist[12]={pointX:1200,pointY:350};
+    Pointlist[13]={pointX:1500,pointY:410};
+    Pointlist[14]={pointX:1620,pointY:240};
+}
+function point19()
+{
+    Pointlist[0]={pointX:1600,pointY:180,mid:12};
+    Pointlist[1]={pointX:1450,pointY:500};
+    Pointlist[2]={pointX:1310,pointY:430};
+    Pointlist[3]={pointX:1260,pointY:350};
+    Pointlist[4]={pointX:1080,pointY:330};
+    Pointlist[5]={pointX:950,pointY:240};
+    Pointlist[6]={pointX:725,pointY:330};
+    Pointlist[7]={pointX:605,pointY:430};
+    Pointlist[8]={pointX:360,pointY:330};
+    Pointlist[9]={pointX:210,pointY:600};
+    Pointlist[10]={pointX:360,pointY:680};
+    Pointlist[11]={pointX:565,pointY:520};
+    Pointlist[12]={pointX:910,pointY:500};
+    Pointlist[13]={pointX:770,pointY:760};
+    Pointlist[14]={pointX:900,pointY:780};  
+    Pointlist[15]={pointX:930,pointY:690};  
+    Pointlist[16]={pointX:1090,pointY:680};  
+    Pointlist[17]={pointX:1320,pointY:780};  
+    Pointlist[18]={pointX:1320,pointY:610};  
+}
+function point22()
+{
+    Pointlist[0]={pointX:1320,pointY:430,mid:13};
+    Pointlist[1]={pointX:950,pointY:300};
+    Pointlist[2]={pointX:895,pointY:210};
+    Pointlist[3]={pointX:605,pointY:260};
+    Pointlist[4]={pointX:210,pointY:240};
+    Pointlist[5]={pointX:180,pointY:330};
+    Pointlist[6]={pointX:370,pointY:500};
+    Pointlist[7]={pointX:360,pointY:680};
+    Pointlist[10]={pointX:605,pointY:610};
+    Pointlist[9]={pointX:605,pointY:780};
+    Pointlist[8]={pointX:210,pointY:770};
+    Pointlist[11]={pointX:730,pointY:680};
+    Pointlist[12]={pointX:730,pointY:500};
+    Pointlist[13]={pointX:910,pointY:500};
+    Pointlist[14]={pointX:940,pointY:690};
+    Pointlist[15]={pointX:1080,pointY:850};
+    Pointlist[16]={pointX:1125,pointY:760};
+    Pointlist[17]={pointX:1490,pointY:760};
+    Pointlist[20]={pointX:1610,pointY:500};
+    Pointlist[19]={pointX:1500,pointY:590};
+    Pointlist[18]={pointX:1610,pointY:680};
+    Pointlist[21]={pointX:1610,pointY:330};
+}
+function point27()
+{
+    Pointlist[0]={pointX:910,pointY:650,mid:1};
+    Pointlist[1]={pointX:910,pointY:500};
+    Pointlist[2]={pointX:1125,pointY:410};
+    Pointlist[3]={pointX:950,pointY:240};
+    Pointlist[4]={pointX:900,pointY:330};
+    Pointlist[5]={pointX:725,pointY:330};
+    Pointlist[6]={pointX:600,pointY:260};
+    Pointlist[7]={pointX:605,pointY:430};
+    Pointlist[8]={pointX:360,pointY:330};
+    Pointlist[9]={pointX:410,pointY:240};
+    Pointlist[10]={pointX:220,pointY:250};
+    Pointlist[11]={pointX:170,pointY:510};
+    Pointlist[12]={pointX:210,pointY:600};
+    Pointlist[13]={pointX:410,pointY:760};
+    Pointlist[14]={pointX:410,pointY:590};
+    Pointlist[15]={pointX:555,pointY:690};
+    Pointlist[16]={pointX:600,pointY:610};
+    Pointlist[17]={pointX:900,pointY:780};
+    Pointlist[18]={pointX:1085,pointY:670};
+    Pointlist[19]={pointX:1320,pointY:780};
+    Pointlist[20]={pointX:1610,pointY:860};
+    Pointlist[21]={pointX:1310,pointY:610};
+    Pointlist[22]={pointX:1450,pointY:680};
+    Pointlist[23]={pointX:1500,pointY:590};
+    Pointlist[24]={pointX:1500,pointY:410};
+    Pointlist[25]={pointX:1450,pointY:330};
+    Pointlist[26]={pointX:1495,pointY:240};
+}
+function point31(){
+    Pointlist[0]={pointX:410,pointY:240,mid:16};
+    Pointlist[1]={pointX:170,pointY:180};
+    Pointlist[2]={pointX:170,pointY:340};
+    Pointlist[3]={pointX:370,pointY:335};
+    Pointlist[4]={pointX:360,pointY:500};
+    Pointlist[5]={pointX:210,pointY:600};
+    Pointlist[6]={pointX:410,pointY:590};
+    Pointlist[7]={pointX:410,pointY:760};
+    Pointlist[8]={pointX:730,pointY:850};
+    Pointlist[9]={pointX:780,pointY:760};
+    Pointlist[10]={pointX:605,pointY:610};
+    Pointlist[11]={pointX:785,pointY:410};
+    Pointlist[12]={pointX:605,pointY:260};
+    Pointlist[13]={pointX:550,pointY:170};
+    Pointlist[14]={pointX:725,pointY:175};
+    Pointlist[15]={pointX:900,pointY:330};
+    Pointlist[16]={pointX:910,pointY:500};
+    Pointlist[17]={pointX:940,pointY:690};
+    Pointlist[18]={pointX:1080,pointY:850};
+    Pointlist[19]={pointX:1125,pointY:760};
+    Pointlist[20]={pointX:1310,pointY:610};
+    Pointlist[21]={pointX:1450,pointY:680};
+    Pointlist[23]={pointX:1610,pointY:510};
+    Pointlist[22]={pointX:1500,pointY:600};
+    Pointlist[25]={pointX:1610,pointY:330};
+    Pointlist[24]={pointX:1650,pointY:250};
+    Pointlist[26]={pointX:1310,pointY:430};
+    Pointlist[27]={pointX:1260,pointY:350};
+    Pointlist[28]={pointX:1125,pointY:240};
+    Pointlist[29]={pointX:1080,pointY:330};
+    Pointlist[30]={pointX:1125,pointY:410};
+}
+function point49(){
+    Pointlist[0]={pointX:910,pointY:500,mid:0};
+    Pointlist[1]={pointX:775,pointY:420};
+    Pointlist[2]={pointX:600,pointY:440};
+    Pointlist[3]={pointX:725,pointY:500};
+    Pointlist[4]={pointX:775,pointY:590};
+    Pointlist[5]={pointX:940,pointY:700};
+    Pointlist[6]={pointX:1130,pointY:760};
+    Pointlist[7]={pointX:1265,pointY:700};
+    Pointlist[8]={pointX:1130,pointY:590};
+    Pointlist[9]={pointX:1265,pointY:520};
+    Pointlist[10]={pointX:1310,pointY:610};
+    Pointlist[11]={pointX:1500,pointY:600};
+    Pointlist[12]={pointX:1615,pointY:510};
+    Pointlist[13]={pointX:1665,pointY:420};
+    Pointlist[14]={pointX:1610,pointY:180};
+    Pointlist[15]={pointX:1450,pointY:200};
+    Pointlist[16]={pointX:1455,pointY:330};
+    Pointlist[17]={pointX:1500,pointY:410};
+    Pointlist[18]={pointX:1260,pointY:350};
+    Pointlist[19]={pointX:1310,pointY:260};
+    Pointlist[20]={pointX:1130,pointY:240};
+    Pointlist[22]={pointX:1075,pointY:330};
+    Pointlist[21]={pointX:1125,pointY:410};
+    Pointlist[23]={pointX:950,pointY:280};
+    Pointlist[24]={pointX:895,pointY:185};
+    Pointlist[25]={pointX:720,pointY:180};
+    Pointlist[26]={pointX:700,pointY:320};
+    Pointlist[27]={pointX:555,pointY:170};
+    Pointlist[28]={pointX:360,pointY:180};
+    Pointlist[29]={pointX:215,pointY:250};
+    Pointlist[30]={pointX:169,pointY:340};
+    Pointlist[31]={pointX:215,pointY:420};
+    Pointlist[32]={pointX:360,pointY:330};
+    Pointlist[33]={pointX:410,pointY:410};
+    Pointlist[34]={pointX:360,pointY:500};
+    Pointlist[35]={pointX:220,pointY:600};
+    Pointlist[36]={pointX:170,pointY:680};
+    Pointlist[37]={pointX:220,pointY:770};
+    Pointlist[38]={pointX:360,pointY:680};
+    Pointlist[39]={pointX:356,pointY:850};
+    Pointlist[40]={pointX:555,pointY:870};
+    Pointlist[41]={pointX:605,pointY:780};
+    Pointlist[42]={pointX:555,pointY:650};
+    Pointlist[43]={pointX:775,pointY:765};
+    Pointlist[44]={pointX:910,pointY:780};
+    Pointlist[45]={pointX:936,pointY:860};
+    Pointlist[46]={pointX:1262,pointY:870};
+    Pointlist[47]={pointX:1320,pointY:780};
 }
 function ranData()//隨機給資料
 {
@@ -27,107 +249,50 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.setAttribute('class','random animation -delay');
     treeElement.style.animationDelay=Math.random()*1.5+'s';
     treeElement.textContent=context;			
-    treeElement.style.left=elementLeft-16+"px";
-    treeElement.style.top=elementTop-16+"px";	
-    document.querySelector('.overbord').appendChild(treeElement);	
+    treeElement.style.left=elementLeft-45+"px";
+    treeElement.style.top=elementTop-32+"px";	
+    document.querySelector('span').appendChild(treeElement);	
 }
 function setRandomPosOnClass2_0()//給予隨機位置
 {
-    //ranData();
-    let temp;
     let count=0;
-    let bor=0.29;
-    let treeX;
-    let treeY;
-    let sw=0;
-    //初始化位置陣列
-    let position=new Array();
-    for(let i=0;i<3000+800;i++){
-        position[i]=new Array();
-        for(let j=0;j<window.innerHeight;j++){
-            position[i][j]={radius:0,isPlanted:0,line:0};//周圍距離 是否種植 連線數
-        }
-    }
-    for(let i=0;i<Data.length;i++)
-        if(Data[i]===inputname){
-           // Pointlist[i]={pointX:window.innerWidth/2,pointY:window.innerHeight/2,line:0}; 
-            temp=i;
-        }
+    for(let i=0;i<Data.length;i++){
+        if(Data[i]==='-1')
+            continue;
+        count+=1;
+    }   
+    console.log('da count',count);
+    setpointlist(count);
+    let num=0;
     for(let i=0;i<Data.length;i++){
     if(Data[i]==='-1')
     {
         console.log(Data[i]);
         continue;
-    }
-    console.log('I:',i,'DL:',Data[i]);
-    //let MinHeight=(window.innerHeight*bor);
-    let MinHeight=(window.innerHeight/2)-(window.innerHeight*bor);
-    let MaxHeight=(window.innerHeight/2)+(window.innerHeight*(bor+0.1));
-
-    let MinWidth=window.innerWidth*(0.1);
-    let MaxWidth=window.innerWidth-(window.innerWidth*(0.1));
-    
-    if(sw%2===0)//右邊的資料
-    {
-        treeX=Math.floor(sw*36+(3800/2)+40);
-        console.log('sw',sw);
-        sw++;
-    }else{
-
-        treeX=Math.floor((3800/2)-40-sw*36);
-        if(treeX<0)
-            treeX=Math.floor(sw*36+(window.innerWidth/2)+40);
-        console.log('2sw',sw);
-        sw++;
-    }
+    }	
+    if(Pointlist[num].pointX==='-1')
+        continue;
+    if(num===Pointlist[0].mid)
+        num+=1;
+    elementLeft=Pointlist[num].pointX;
+    elementTop=Pointlist[num].pointY;
     if(Data[i]===inputname){
-        let treeX=Math.floor(3800/2);
-        let treeY=Math.floor(window.innerHeight/2);
-        let elementLeft=Math.max(treeX-position[treeX][treeY].radius,16);
-        let elementTop=Math.max(treeY-position[treeX][treeY].radius,16);				
+        console.log('mid',Pointlist[0].mid);
+         elementLeft=Pointlist[Pointlist[0].mid].pointX;
+        elementTop=Pointlist[Pointlist[0].mid].pointY;
+        
         showResult(i,elementLeft,elementTop,Data[i]);	
         creatcolumn(i);
-        temp=count;
-        Pointlist[count++]={pointX:elementLeft,pointY:elementTop,line:0};
         continue;
     }
-    //隨機選擇位置
-   // let treeX=Math.floor(Math.random()*(MaxWidth-MinWidth)+MinWidth);
-    treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
 
-    let stoptime=0;
-    position[treeX][treeY].isPlanted=1;
-    //假如選擇的位址已經有了，則重選 假如選擇位置有重疊到，則重選
-    while(position[treeX][treeY].isPlanted===1||CheckHaveSame(position,treeX,treeY))
-    {
-        if(stoptime===100000){
-          // alert('break');
-          console.log('break');
-         // position[treeX][treeY].isPlanted=1; 
-          break;
-        }
-        MinWidth=0;
-        MaxWidth=3000+800;
-        treeY=Math.floor(Math.random()*(MaxHeight-MinHeight)+MinHeight);	
-
-        stoptime++;
+    showResult(i,elementLeft,elementTop,Data[i]);	
+    num++;
     }
-    //假如種植成功則創建div
-    if(position[treeX][treeY].isPlanted==1){	
-
-        //顯示資料
-        let elementLeft=Math.max(treeX-position[treeX][treeY].radius,16);
-        let elementTop=Math.max(treeY-position[treeX][treeY].radius,16);				
-        showResult(i,elementLeft,elementTop,Data[i]);	
-        //紀錄有哪些點			
-        Pointlist[count++]={pointX:elementLeft,pointY:elementTop,line:0};     
-    }
-
-    }
-    console.log('a',Pointlist[temp]);
+    for(let i=num;i<Pointlist.length;i++)
+        Pointlist[i]={pointX:-1,pointY:-1,line:0};
    //尋找適合的點並畫線
-    findleftpoint2_1(temp);
-    findrightpoint2_1(temp);
+   findline();
 }
 function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
 {
@@ -204,7 +369,7 @@ function creatcanva()//初始化canvas
     //加上動畫效果
     setcanvas.setAttribute('class','line animation -delay');
     //新增在body裡面
-    document.querySelector('.overbord').appendChild(setcanvas);
+    document.querySelector('span').appendChild(setcanvas);
 }
 function HaveSameLine(linelist,p1,p2)//判斷是否重新連線
 {
@@ -276,10 +441,9 @@ function onConfirm() //輸入文字後輸出資料
     let temp=parentObj.parentNode;
     temp.removeChild(parentObj);
     //初始化canva畫布
-    creatoverbord();
+   // creatoverbord();
     creatcanva();
     //設定文字框
-    setpointlist();
     setRandomPosOnClass2_0();
 }
 function findleftpoint2_1(point)//尋找連接點
@@ -381,9 +545,21 @@ function findrightpoint2_1(point)//尋找連接點
     Updateslinelist(linelist,i,temp);//更新linelist(儲存i點連接到哪個點)
     Pointlist[i].line+=1;//i點的連線數+1
     Pointlist[temp].line+=1;//i點連接到的點連線數+1
-    findrightpoint2_1(temp);
+   // findrightpoint2_1(temp);
    // for(let i in Pointlist)
         //console.log("第i點 :",i,"連線數",Pointlist[i].line);
+}
+function findline()
+{
+    for(let i=0;i<Pointlist.length;i++){
+        if(Pointlist[i+1].pointX===-1)
+            return;
+        let x1=Pointlist[i].pointX;
+        let x2=Pointlist[i+1].pointX;
+        let y1=Pointlist[i].pointY;
+        let y2=Pointlist[i+1].pointY;
+        connectDots(x1,y1,x2,y2);
+    }
 }
 function creatbord()
 {
@@ -402,7 +578,7 @@ function findData()
                 console.log(mainlist[i][j]);
                 sw=1;
                 Data=nodelist[i];
-                column=j+1;
+                column=29-j;
             }
     if(sw===1)
         return true;
@@ -413,7 +589,7 @@ function findData()
 function creatcolumn(num)
 {
     let columnbox=document.createElement('div');
-    columnbox.textContent="第"+column+"行";
+    columnbox.textContent="第"+column+"屆";
     columnbox.setAttribute('class','columnbox');
     document.querySelector('#tree'+num).appendChild(columnbox);	
 }
@@ -425,8 +601,35 @@ function connectDots(x1,y1,x2,y2)//創建連線
     ctx.lineCap = "butt";
     ctx.beginPath();
     ctx.moveTo(x1, y1);
-    let randnum=Math.random()*(50+50)-50;
-    ctx.bezierCurveTo(x1 + (x2 - x1)+randnum / 2, y1, x1 + (x2 - x1) / 2, y2, x2, y2);
+    let factor=0.6;
+    let numx=0;
+    let numy=0;
+    let distance=Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2));
+
+    if(distance>150){
+
+    if(Math.sqrt(Math.pow(x1-x2,2))<50){
+    factor=2;
+        numx=30;
+    }
+    if(Math.sqrt(Math.pow(y1-y2,2))<50)
+        numy=20;
+    }
+    if(distance<150)
+        factor=100;
+    const cpx1 = x1 + (x2 - x1+numx) / 2;
+    const cpy1 = y1-numy;
+    const cpx2 = x1 + (x2 - x1+numx) / 2;
+    const cpy2 = y2+numy;
+    const cp1x = cpx1 + (cpx2 - cpx1) / factor;
+    const cp1y = cpy1 + (cpy2 - cpy1) / factor;
+    const cp2x = cpx2 - (cpx2 - cpx1) / factor;
+    const cp2y = cpy2 - (cpy2 - cpy1) / factor;
+    if(distance<50)
+        ctx.quadraticCurveTo(cp1x,cp1y,x2,y2);
+    else
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x2, y2);
+   // ctx.quadraticCurveTo(cp1x,cp1y,x2,y2);
     ctx.stroke();
 }
 function creatoverbord()
