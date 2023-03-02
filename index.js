@@ -598,6 +598,7 @@ function connectDots(x1,y1,x2,y2)//創建連線
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
     ctx.lineWidth = 3;
+    ctx.strokeStyle='#fff100';
     ctx.lineCap = "butt";
     ctx.beginPath();
     ctx.moveTo(x1, y1);
