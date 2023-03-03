@@ -15,7 +15,7 @@ function setpointlist(count)
     for(let j=0;j<Data.length;j++)
         Pointlist[j]={pointX:-1,pointY:-1,line:0};
     console.log('count',choserange(count));
-    switch(choserange(49)){
+    switch(choserange(count)){
         case 11:
             point11();
             break;
@@ -142,9 +142,9 @@ function point27()
     Pointlist[19]={pointX:1320,pointY:780};
     Pointlist[20]={pointX:1610,pointY:860};
     Pointlist[21]={pointX:1310,pointY:610};
-    Pointlist[22]={pointX:1450,pointY:680};
-    Pointlist[23]={pointX:1500,pointY:590};
-    Pointlist[24]={pointX:1500,pointY:410};
+    Pointlist[22]={pointX:1450,pointY:630};
+    Pointlist[23]={pointX:1500,pointY:540};
+    Pointlist[24]={pointX:1500,pointY:360};
     Pointlist[25]={pointX:1450,pointY:330};
     Pointlist[26]={pointX:1495,pointY:240};
 }
@@ -282,10 +282,11 @@ function setRandomPosOnClass2_0()//給予隨機位置
         elementTop=Pointlist[Pointlist[0].mid].pointY;
         showResult(i,elementLeft,elementTop,Data[i]);	
         creatcolumn(i);
+        Pointlist[Pointlist[0].mid].pointY+=40;
         continue;
     }
-
-    showResult(i,elementLeft,elementTop,Data[i]);	
+    Pointlist[num].pointY+=40;
+    showResult(i,elementLeft,elementTop+35,Data[i]);	
     num++;
     }
     for(let i=num+1;i<Pointlist.length;i++)
@@ -364,7 +365,7 @@ function creatcanva()//初始化canvas
     let setcanvas = document.createElement("canvas");
     //設定canvas畫布大小
     setcanvas.width=3000+800;
-    setcanvas.height=window.innerHeight;
+    setcanvas.height=3000;
     //加上動畫效果
     setcanvas.setAttribute('class','line animation -delay');
     //新增在body裡面
@@ -561,14 +562,14 @@ function findline()
     ctx.moveTo(Pointlist[0].pointX, Pointlist[0].pointY);
 
     for (let i = 1; i < Pointlist.length; i++) {
-        if(Pointlist[i+2].pointX===-1){
+        if(Pointlist[i+1].pointX===-1){
             console.log('i',i);
             ctx.lineTo(Pointlist[i].pointX, Pointlist[i].pointY);
             break;
         }
         // 計算兩個點之間的控制點坐標
-        const x1 = (Pointlist[i].pointX);
-        const y1 = (Pointlist[i].pointY);
+        const x1 = (Pointlist[i].pointX)-(Pointlist[i+1].pointX-Pointlist[i].pointX)*0.4;
+        const y1 = (Pointlist[i].pointY)-(Pointlist[i+1].pointY-Pointlist[i].pointY)*0.4;
         const x2 = Pointlist[i + 1].pointX-(Pointlist[i+1].pointX-Pointlist[i].pointX)*0.4;
         const y2 = Pointlist[i + 1].pointY-(Pointlist[i+1].pointY-Pointlist[i].pointY)*0.4;
         const midx = (x1 + x2) / 2;
