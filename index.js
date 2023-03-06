@@ -144,7 +144,7 @@ function point27()
     Pointlist[21]={pointX:1310,pointY:610};
     Pointlist[22]={pointX:1450,pointY:630};
     Pointlist[23]={pointX:1500,pointY:540};
-    Pointlist[24]={pointX:1500,pointY:360};
+    Pointlist[24]={pointX:1500,pointY:290};
     Pointlist[25]={pointX:1450,pointY:330};
     Pointlist[26]={pointX:1495,pointY:240};
 }
@@ -248,10 +248,16 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.setAttribute("id","tree"+i);
     treeElement.setAttribute('class','random animation -delay');
     treeElement.style.animationDelay=Math.random()*1.5+'s';
-    treeElement.textContent=context;			
-    treeElement.style.left=elementLeft-45+"px";
-    treeElement.style.top=elementTop-32+"px";	
+    treeElement.style.margin='20px';	
+    treeElement.style.left=elementLeft-30+"px";
+    treeElement.style.top=elementTop-50+"px";	
+    if(context===inputname)
+        treeElement.style.width ='150px';
+    treeElement.style.textAlign="center";
     document.querySelector('span').appendChild(treeElement);	
+    let table=document.createElement('label');
+    table.textContent=context;
+    document.querySelector('#tree'+i).appendChild(table);
 }
 function setRandomPosOnClass2_0()//給予隨機位置
 {
@@ -280,19 +286,21 @@ function setRandomPosOnClass2_0()//給予隨機位置
         console.log('mid',Pointlist[0].mid);
         elementLeft=Pointlist[Pointlist[0].mid].pointX;
         elementTop=Pointlist[Pointlist[0].mid].pointY;
-        showResult(i,elementLeft,elementTop,Data[i]);	
+        showResult(i,elementLeft+0,elementTop+0,Data[i]);	
         creatcolumn(i);
-        Pointlist[Pointlist[0].mid].pointY+=40;
+        Pointlist[Pointlist[0].mid].pointY+=0;
+        Pointlist[Pointlist[0].mid].pointX+=0;       
         continue;
     }
-    Pointlist[num].pointY+=40;
-    showResult(i,elementLeft,elementTop+35,Data[i]);	
+    Pointlist[num].pointY+=0;
+    Pointlist[num].pointX+=0;
+    showResult(i,elementLeft,elementTop,Data[i]);	
     num++;
     }
     for(let i=num+1;i<Pointlist.length;i++)
         Pointlist[i]={pointX:-1,pointY:-1,line:0};
    //尋找適合的點並畫線
-   findline();
+ //  findline();
 }
 function CheckHaveSame(position,treeX,treeY)//判斷是否有重疊
 {
@@ -408,6 +416,7 @@ function GetName()//創建文字輸入框
     input.type='text';
     input.setAttribute('id','nameInput');
     input.style.display='block';
+    input.style.textAlign="center";
     input.style.border='2px solid';
     input.style.marginBottom='10px';
     document.querySelector('div').appendChild(input);
@@ -613,6 +622,7 @@ function creatcolumn(num)
     let columnbox=document.createElement('div');
     columnbox.textContent="第"+column+"屆";
     columnbox.setAttribute('class','columnbox');
+    columnbox.style.top='-200px';
     document.querySelector('#tree'+num).appendChild(columnbox);	
 }
 function connectDots(x1,y1,x2,y2)//創建連線
