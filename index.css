@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
 .random {
     color: rgb(65, 179, 192);
     background-color: rgb(255, 255, 255);
@@ -8,11 +12,13 @@
    /* width: fit-content;*/
     position:absolute;
     opacity:0;
-    padding: 10px;
-    font-size: 30px;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
     white-space:nowrap;
+    font-weight:bolder ;
     border: 2px rgba(233,233,51)    solid;
-    font-family: 'Source Han Serif', serif;
 }  
 .animation{
     animation-name:ShowData;   
@@ -35,9 +41,11 @@
 }
 body{
     overflow:auto;
+    font-family: 'Noto Sans TC';
 }
 div{
     padding:0px;
+
 }    
 .container {
     position: flex;
@@ -81,8 +89,8 @@ div{
     display: block;
  }
 .columnbox{
-    margin-top: 10px;
-    font-size: 20px;
+    margin-bottom: 2px;
+    font-size: 15px;
     border-radius: 50px;
     text-align: center;
 }
@@ -90,4 +98,9 @@ div{
 {
      from {opacity:0 ; }
      to { opacity:1;}
+}
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
 }

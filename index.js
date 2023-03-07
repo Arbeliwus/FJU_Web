@@ -244,6 +244,7 @@ function ranData()//隨機給資料
 }
 function showResult(i,elementLeft,elementTop,context){//創建div
 	
+
     let treeElement=document.createElement("div");	
     treeElement.setAttribute("id","tree"+i);
     treeElement.setAttribute('class','random animation -delay');
@@ -251,10 +252,16 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.style.margin='20px';	
     treeElement.style.left=elementLeft-30+"px";
     treeElement.style.top=elementTop-50+"px";	
-    if(context===inputname)
-        treeElement.style.width ='150px';
+    if(context===inputname){
+        treeElement.style.paddingLeft ='20px';
+        treeElement.style.paddingRight='20px';
+        treeElement.style.fontSize="35px";
+    }
+  //  treeElement.style.width ='150px';
+    treeElement.style.fontFamily='NOTOSANSCJKTC';
     treeElement.style.textAlign="center";
     document.querySelector('span').appendChild(treeElement);	
+    creatcolumn(i,context);
     let table=document.createElement('label');
     table.textContent=context;
     document.querySelector('#tree'+i).appendChild(table);
@@ -287,7 +294,7 @@ function setRandomPosOnClass2_0()//給予隨機位置
         elementLeft=Pointlist[Pointlist[0].mid].pointX;
         elementTop=Pointlist[Pointlist[0].mid].pointY;
         showResult(i,elementLeft+0,elementTop+0,Data[i]);	
-        creatcolumn(i);
+        //creatcolumn(i);
         Pointlist[Pointlist[0].mid].pointY+=0;
         Pointlist[Pointlist[0].mid].pointX+=0;       
         continue;
@@ -617,12 +624,22 @@ function findData()
         return false;
     }
 }
-function creatcolumn(num)
+function findcolum(name){
+    for(let  i=0;i<mainlist.length;i++)
+        for(let j=0;j<mainlist[i].length;j++)
+            if(mainlist[i][j].includes(name))
+            {
+                console.log(mainlist[i][j]);
+                column=29-j;
+            }
+    return column;
+}
+function creatcolumn(num,name)
 {
     let columnbox=document.createElement('div');
-    columnbox.textContent="第"+column+"屆";
+    columnbox.textContent="第"+findcolum(name)+"屆";
     columnbox.setAttribute('class','columnbox');
-    columnbox.style.top='-200px';
+    columnbox.style.bottom='5px';
     document.querySelector('#tree'+num).appendChild(columnbox);	
 }
 function connectDots(x1,y1,x2,y2)//創建連線
