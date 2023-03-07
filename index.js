@@ -144,7 +144,7 @@ function point27()
     Pointlist[21]={pointX:1310,pointY:610};
     Pointlist[22]={pointX:1450,pointY:630};
     Pointlist[23]={pointX:1500,pointY:540};
-    Pointlist[24]={pointX:1500,pointY:290};
+    Pointlist[24]={pointX:1500,pointY:430};
     Pointlist[25]={pointX:1450,pointY:330};
     Pointlist[26]={pointX:1495,pointY:240};
 }
@@ -195,7 +195,7 @@ function point49(){
     Pointlist[10]={pointX:1310,pointY:610};
     Pointlist[11]={pointX:1500,pointY:600};
     Pointlist[12]={pointX:1615,pointY:510};
-    Pointlist[13]={pointX:1665,pointY:420};
+    Pointlist[13]={pointX:1640,pointY:720};
     Pointlist[14]={pointX:1610,pointY:180};
     Pointlist[15]={pointX:1450,pointY:200};
     Pointlist[16]={pointX:1455,pointY:330};
