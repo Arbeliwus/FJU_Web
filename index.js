@@ -639,7 +639,7 @@ function creatcolumn(num,name)
     let columnbox=document.createElement('div');
     columnbox.textContent="第"+findcolum(name)+"屆";
     columnbox.setAttribute('class','columnbox');
-    columnbox.style.bottom='5px';
+    columnbox.style.bottom='0px';
     document.querySelector('#tree'+num).appendChild(columnbox);	
 }
 function connectDots(x1,y1,x2,y2)//創建連線
