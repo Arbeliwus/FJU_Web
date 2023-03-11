@@ -249,7 +249,7 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.setAttribute("id","tree"+i);
     treeElement.setAttribute('class','random animation -delay');
     treeElement.style.animationDelay=Math.random()*1.5+'s';
-    treeElement.style.margin='20px';	
+    treeElement.style.margin='5px';	
     treeElement.style.left=elementLeft-30+"px";
     treeElement.style.top=elementTop-50+"px";	
     if(context===inputname){
@@ -258,7 +258,7 @@ function showResult(i,elementLeft,elementTop,context){//創建div
         treeElement.style.fontSize="35px";
     }
   //  treeElement.style.width ='150px';
-    treeElement.style.fontFamily='NOTOSANSCJKTC';
+
     treeElement.style.textAlign="center";
     document.querySelector('span').appendChild(treeElement);	
     creatcolumn(i,context);
@@ -425,12 +425,24 @@ function GetName()//創建文字輸入框
     input.style.display='block';
     input.style.textAlign="center";
     input.style.border='2px solid';
-    input.style.marginBottom='10px';
+    input.style.borderRadius = "50px";
+    input.style.border="6px #fff100   solid";
+    input.style.outline = 'none'; // 移除聚焦時的外框
+    input.style.width = '200px'; // 設置 input 元素的寬度
+    input.style.height = '90px'; // 設置 input 元素的高度
+    input.style.fontSize = '40px'; // 設置輸入框中文字的大小
     document.querySelector('div').appendChild(input);
 
     let button=document.createElement('button');
     button.setAttribute('id','confirmButton');
-    button.textContent="enter";
+    button.textContent="ENTER";
+    button.style.color="#41b3c0";
+    button.style.fontSize="30px";
+    button.style.fontWeight="bold";
+    button.style.border="4px #fff100    solid";
+    button.style.borderRadius = "50px";
+    button.style.width = '130px'; // 設置 input 元素的寬度
+    button.style.height = '60px'; // 設置 input 元素的高度
     button.onclick= function(){ //按鈕function
         onConfirm();
     };

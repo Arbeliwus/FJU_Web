@@ -20,7 +20,7 @@
     font-size: 25px;
     white-space:nowrap;
     font-weight:bolder ;
-    border: 2px rgba(233,233,51)    solid;
+    border: 3px #fff100    solid;
 }  
 .animation{
     animation-name:ShowData;   
@@ -39,7 +39,7 @@
 }
 .line{
     opacity:0;
-    color: rgba(255, 241, 0, 0.766);
+    color: #fff100
 }
 body{
     overflow:auto;
@@ -79,13 +79,14 @@ div{
     object-fit: fill;
  }
  .img-text {
-    font-size: 30px;
+    font-size: 50px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-weight:bold;
     text-align: center;
-    color: #000;
+    color: #41b3c0;
  }
  .topbord{
     display: block;
