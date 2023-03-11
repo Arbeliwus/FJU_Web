@@ -424,12 +424,12 @@ function GetName()//創建文字輸入框
     input.setAttribute('id','nameInput');
     input.style.display='block';
     input.style.textAlign="center";
-    input.style.border='2px solid';
     input.style.borderRadius = "50px";
-    input.style.border="6px #fff100   solid";
+    input.style.marginLeft = '10px'; // 離左邊10PX距離
+    input.style.border="4px #fff100   solid";
     input.style.outline = 'none'; // 移除聚焦時的外框
-    input.style.width = '200px'; // 設置 input 元素的寬度
-    input.style.height = '90px'; // 設置 input 元素的高度
+    input.style.width = '170px'; // 設置 input 元素的寬度
+    input.style.height = '80px'; // 設置 input 元素的高度
     input.style.fontSize = '40px'; // 設置輸入框中文字的大小
     document.querySelector('div').appendChild(input);
 
@@ -437,11 +437,11 @@ function GetName()//創建文字輸入框
     button.setAttribute('id','confirmButton');
     button.textContent="ENTER";
     button.style.color="#41b3c0";
-    button.style.fontSize="30px";
+    button.style.fontSize="25px";
     button.style.fontWeight="bold";
     button.style.border="4px #fff100    solid";
     button.style.borderRadius = "50px";
-    button.style.width = '130px'; // 設置 input 元素的寬度
+    button.style.width = '100px'; // 設置 input 元素的寬度
     button.style.height = '60px'; // 設置 input 元素的高度
     button.onclick= function(){ //按鈕function
         onConfirm();
