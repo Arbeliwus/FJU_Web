@@ -441,6 +441,7 @@ function GetName()//創建文字輸入框
     button.style.fontWeight="bold";
     button.style.border="4px #fff100    solid";
     button.style.borderRadius = "50px";
+    button.style.backgroundColor = 'transparent';
     button.style.width = '100px'; // 設置 input 元素的寬度
     button.style.height = '60px'; // 設置 input 元素的高度
     button.onclick= function(){ //按鈕function
