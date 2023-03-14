@@ -436,14 +436,14 @@ function GetName()//創建文字輸入框
     let button=document.createElement('button');
     button.setAttribute('id','confirmButton');
     button.textContent="ENTER";
-    button.style.color="#41b3c0";
-    button.style.fontSize="25px";
-    button.style.fontWeight="bold";
-    button.style.border="4px #fff100    solid";
+    button.style.color="#FFFFFF";
+    button.style.fontSize="27px";
+    button.style.fontWeight="450";
+    button.style.border="#41b3c0";
     button.style.borderRadius = "50px";
-    button.style.backgroundColor = 'transparent';
-    button.style.width = '100px'; // 設置 input 元素的寬度
-    button.style.height = '60px'; // 設置 input 元素的高度
+    button.style.backgroundColor = "#41b3c0";
+    button.style.width = '107px'; // 設置 input 元素的寬度
+    button.style.height = '53px'; // 設置 input 元素的高度
     button.onclick= function(){ //按鈕function
         onConfirm();
     };
