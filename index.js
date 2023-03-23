@@ -251,7 +251,7 @@ function showResult(i,elementLeft,elementTop,context){//創建div
     treeElement.style.animationDelay=Math.random()*1.5+'s';
     treeElement.style.margin='5px';	
     treeElement.style.left=elementLeft-30+"px";
-    treeElement.style.top=elementTop-50+"px";	
+    treeElement.style.top=elementTop+"px";	
     if(context===inputname){
         treeElement.style.paddingLeft ='20px';
         treeElement.style.paddingRight='20px';
